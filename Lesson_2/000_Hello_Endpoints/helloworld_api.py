@@ -19,6 +19,11 @@ REQUEST_CONTAINER = endpoints.ResourceContainer(
     period=messages.StringField(2),
 )
 
+REQUEST_GREETING_CONTAINER = endpoints.ResourceContainer(
+    period=messages.StringField(1),
+    name=messages.StringField(2),
+)
+
 
 package = 'Hello'
 
@@ -43,7 +48,7 @@ class HelloWorldApi(remote.Service):
       greet = "Hello {}".format(request.name)
       return Hello(greeting=greet)
 
-    @endpoints.method(REQUEST_CONTAINER, Hello,
+    @endpoints.method(REQUEST_GREETING_CONTAINER, Hello,
       path = "greetByPeriod", http_method='GET', name = "greetByPeriod")
     def say_hello_by_period(self, request):
       greet = "Good {0}, {1}".format(request.period, request.name)
