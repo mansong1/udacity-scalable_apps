@@ -97,10 +97,10 @@ function greetByPeriod () {
   var name = document.getElementById("name_field").value;
 	var period = document.getElementById("period_field").value;
 
-	// Call the sayHelloByPeriod() function.
+	// Call the greetByPeriod() function.
 	// It takes two arguments "name" and "period"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByPeriod({'period':period, 'name': name});
+	var request = gapi.client.helloworldendpoints.greetByPeriod({'period':period, 'name': name});
 	request.execute(sayHelloCallback);
 }
 
